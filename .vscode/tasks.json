@@ -1,0 +1,12 @@
+﻿{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run gg.py",
+            "type": "shell",
+            "command": "python gg.py",
+            "group": "test",
+            "problemMatcher": []
+        }
+    ]
+}
