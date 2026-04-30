@@ -1,0 +1,7 @@
+print("Hello, World!")
+
+name = input("Enter your name: ")
+print("Welcome,", name)
+
+for i in range(5):
+    print("Number:", i)
