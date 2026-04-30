@@ -1,26 +1,24 @@
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+name: CI/CD Pipeline
 
-# تحميل الداتا
-data = load_iris()
-X = data.data
-y = data.target
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-# تقسيم البيانات
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-# إنشاء الـ Pipeline
-pipeline = Pipeline([
-    ('scaler', StandardScaler()),       # Step 1: Normalize
-    ('model', LogisticRegression())     # Step 2: Model
-])
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-# تدريب الموديل
-pipeline.fit(X_train, y_train)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-# التقييم
-accuracy = pipeline.score(X_test, y_test)
-print("Accuracy:", accuracy)
+      - name: Run Python script
+        run: |
+          python gg.py
