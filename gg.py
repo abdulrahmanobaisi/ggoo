@@ -14,7 +14,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # إنشاء الـ Pipeline
 pipeline = Pipeline([
-    ('scaler', StandardScaler()),       # Step 1: Normalize
+    ('scaler', StandardScaler()),       # Step 1: Normalize1
     ('model', LogisticRegression())     # Step 2: Model
 ])
 
